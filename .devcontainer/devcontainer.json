@@ -1,16 +1,8 @@
 {
-  "name": "Cloud PC (RDP)",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "postCreateCommand": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xfce4 xfce4-goodies xrdp dbus-x11 && echo 'xfce4-session' > ~/.xsession && sudo adduser xrdp ssl-cert && echo 'vscode:vscode' | sudo chpasswd",
-  "postStartCommand": "sudo service xrdp restart",
-  "forwardPorts":,
-  "portsAttributes": {
-    "3389": {
-      "label": "RDP",
-      "protocol": "tcp"
-    }
+  "name": "Android RDP Codespace",
+  "image": "://microsoft.com",
+  "features": {
+    "ghcr.io/devcontainers/features/tailscale:1": {}
   },
-  "hostRequirements": {
-    "cpus": 4
-  }
+  "postCreateCommand": "sudo apt-get update && DEBIAN_FRONTEND=noninteractive sudo apt-get install -y xfce4 xfce4-goodies xrdp dbus-x11 && echo 'xfce4-session' > ~/.xsession && sudo adduser xrdp ssl-cert"
 }
